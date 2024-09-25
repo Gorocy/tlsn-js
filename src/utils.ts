@@ -150,7 +150,7 @@ export function processJSON(str: string): Commitment[] {
         last.range[1] = i - 1;
         values.push(stack.pop()!);
         const object = stack.pop();
-        expect(object?.type === 'object_value', 'expect stack to be object');
+        expect(object?.type === 'object', 'expect stack to be object');
         object!.range[1] = i;
         values.push(object!);
         keys.pop();
@@ -346,8 +346,7 @@ export function processTranscript(transcript: string): ParsedTranscriptData {
 
   function _processEOL(txt: string, index: number, lineIndex: number) {
     try {
-      if (!txt) return;
-      if (!isNaN(Number(txt))) {
+      if (txt === "") {
         isBody = true;
         return;
       }
