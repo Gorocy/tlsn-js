@@ -4,7 +4,6 @@ wasm-pack.log
 node_modules/
 .idea/
 .DS_Store
-build/
 dev-build/
 test-build/
 ./demo/node_modules
